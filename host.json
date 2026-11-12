@@ -2,10 +2,11 @@
   "format": "zesia.host-adapter.v1",
   "id": "workbuddy",
   "requester": "WorkBuddy",
-  "version": "0.1.1",
-  "runtimeVersion": "0.2.1",
+  "version": "0.2.0",
+  "runtimeVersion": "0.3.0",
   "skillDirectory": ".codebuddy/skills",
   "entry": "skill-and-a2a-cli",
   "nativeUI": false,
-  "documentation": "https://www.workbuddy.ai/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills"
+  "documentation": "https://www.workbuddy.ai/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills",
+  "reviewSurface": "local-browser"
 }

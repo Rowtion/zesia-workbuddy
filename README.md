@@ -25,8 +25,8 @@ Reload or list Skills in the host and verify `zesia-consult` is discovered. The 
 ## Use
 
 1. Ask for independent review of the current task or reply.
-2. The agent prepares a local draft and shows the selected materials and destination in your conversation.
-3. Confirm that draft before it is sent through A2A. The agent receives the advice and decides how to use it.
+2. The agent prepares a private draft and opens a local read-only review page showing the question, attachments and destination.
+3. Click Confirm and send in the page; the result appears there and the agent retrieves it without a large confirmation message in chat.
 
 A trial token is required for cloud consultation. Configure it locally with `node <installed-skill-directory>/scripts/configure.mjs`; never paste a credential into chat. Follow-ups prepare another draft and require confirmation. Unknown send outcomes are never retried automatically.
 
@@ -50,3 +50,7 @@ The pinned `@zesia/runtime` release supplies the shared local workflow and offic
 Repeat installation reuses only an exact adapter version, runtime version and verified content identity. After reviewing a managed update, run the new extracted installer with `--upgrade`. Modified or unmanaged files are preserved. A legacy installation without verifiable version/content metadata returns an explicit migration error; review and move it aside before installing, rather than treating it as current. Project-internal directory symlinks are rejected before writes.
 
 Upgrades retain the previous installation under the project’s `.zesia/skill-backups/` directory and return its path. Review backups before removing them. Legacy installations without verifiable identity must be reviewed and moved aside before reinstalling; `--upgrade` never overwrites unverifiable or user-edited content.
+
+## Local review
+
+`review <draftId>` opens a temporary read-only browser page; `wait <draftId> 60` or `result <draftId>` returns the locally saved result to your agent. The browser and agent runtime must run on the same computer. No administrator access, cloud draft storage or browser-side trial token is required. Automatic opening failure leaves a clickable link. Sessions expire after five idle minutes or fifteen total minutes; closing the tab does not cancel a send. Do not expose or forward the port. Host discovery and real-session acceptance remain separate checks.
